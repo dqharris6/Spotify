@@ -20,6 +20,7 @@ if token:
     ranges = ['short_term', 'medium_term', 'long_term']
 
     for range in ranges:
+        print "range:", range
 
         # set array of tracks to blank
         track_ids = []
@@ -33,7 +34,7 @@ if token:
         # loop through each song in results, return its id
         for i, item in enumerate(results['items']):
             track_ids.append(item['id'])
-            print i, item['id']
+            print i, item['name'], '//', item['artists'][0]['name']
 
         # add the array of songs to the playlist
         results = sp.user_playlist_add_tracks(username, playlist['id'], track_ids)
